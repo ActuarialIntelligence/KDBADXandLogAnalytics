@@ -1,0 +1,145 @@
+﻿using System;
+using System.Text;
+using System.Threading.Tasks;
+using Azure.Messaging.EventHubs;
+using Azure.Messaging.EventHubs.Producer;
+using demo.infrastructure.EventHandlers;
+using demo.Infrastructure.connectors;
+using kx;
+using System.Net.Sockets;
+using System.Net;
+
+namespace TestKDB
+{
+    class Program
+    {
+
+        public static void Main()
+        {
+            //TcpListener server = null;
+
+            //    // Set the TcpListener on port 13000.
+            //    Int32 port = 80;
+            //    IPAddress localAddr = IPAddress.Parse("10.0.0.4");
+
+            //    // TcpListener server = new TcpListener(port);
+            //    server = new TcpListener(localAddr, port);
+
+            //    // Start listening for client requests.
+            //    server.Start();
+
+            //    // Buffer for reading data
+            //    Byte[] bytes = new Byte[256];
+            //    String data = null;
+
+            //    // Enter the listening loop.
+            //    while (true)
+            //    {
+            //        Console.Write("Waiting for a connection... ");
+
+            //        // Perform a blocking call to accept requests.
+            //        // You could also use server.AcceptSocket() here.
+            //        TcpClient client = server.AcceptTcpClient();
+            //        Console.WriteLine("Connected!");
+
+            //        data = null;
+
+            //        // Get a stream object for reading and writing
+            //        NetworkStream stream = client.GetStream();
+
+            //        int i;
+
+            //        // Loop to receive all the data sent by the client.
+            //        while ((i = stream.Read(bytes, 0, bytes.Length)) != 0)
+            //        {
+            //            // Translate data bytes to a ASCII string.
+            //            data = System.Text.Encoding.ASCII.GetString(bytes, 0, i);
+            //            Console.WriteLine("Received: {0}", data);
+
+            //            // Process the data sent by the client.
+            //            data = data.ToUpper();
+
+            //            byte[] msg = System.Text.Encoding.ASCII.GetBytes(data);
+
+            //            // Send back a response.
+            //            stream.Write(msg, 0, msg.Length);
+            //            Console.WriteLine("Sent: {0}", data);
+            //        }
+
+            //        // Shutdown and end connection
+            //        client.Close();
+            //    }
+            //}
+            //catch (SocketException e)
+            //{
+            //    Console.WriteLine("SocketException: {0}", e);
+            //}
+            //finally
+            //{
+            //    // Stop listening for new clients.
+            //    server.Stop();
+            //}
+
+            //Console.WriteLine("\nHit enter to continue...");
+            //Console.Read();
+
+            //KDBConnection.TestSend(EventHub.SendToEventHub);
+
+            c c = new c("localhost", 5001, "username:password");
+            c.ks("mytable:([]sym:10?`1;time:.z.p+til 10;price:10?100.;size:10?1000)"); // create example table using async msg (c.ks)
+            Object result = c.k("select from mytable"); // query the table using a sync msg (c.k)
+                                                        // A flip is a table. A keyed table is a dictionary where the key and value are both flips.
+            c.Flip flip = c.td(result); // if the result set is a keyed table, this removes the key. 
+            int nRows = c.n(flip.y[0]); // flip.y is an array of columns. Get the number of rows from the first column.
+            int nColumns = c.n(flip.x); // flip.x is an array of column names
+            Console.WriteLine("Number of columns: " + c.n(flip.x));
+            Console.WriteLine("Number of rows:    " + nRows);
+            for (int column = 0; column < nColumns; column++)
+                System.Console.Write((column > 0 ? "," : "") + flip.x[column]);
+            System.Console.WriteLine();
+            for (int row = 0; row < nRows; row++)
+            {
+                for (int column = 0; column < nColumns; column++)
+                    System.Console.Write((column > 0 ? "," : "") + c.at(flip.y[column], row)); // c.at extracts the cell from column,row.
+                System.Console.WriteLine();
+            }
+            c.Close();
+
+            //c c = new c("localhost", 80);
+            //c.ks("mytrade:([]time:();sym:();price:();size:())"); // create an empty dummy table which we will insert into
+            //object[] x = new object[4];
+            //x[0] = DateTime.Now.TimeOfDay;
+            //x[1] = "abc";
+            //x[2] = (double)93.5;
+            //x[3] = 300;
+            //var a = x[0].ToString();
+            //c.k(x);
+            //c.Close();
+
+            ////Random rnd = new Random();
+            ////string[] syms = new string[] { "abc", "def", "ghi", "jki" };
+            ////c = new c("localhost", 5985);
+            ////c.ks("mytrade:([]time:();sym:();price:();size:())");
+            ////x = new object[4];
+            ////System.TimeSpan[] time = new System.TimeSpan[1024];
+            ////string[] sym = new string[1024];
+            ////double[] price = new double[1024];
+            ////int[] size = new int[1024];
+            ////for (int i = 0; i < 1024; i++)
+            ////{
+            ////    time[i] = DateTime.Now.TimeOfDay;
+            ////    sym[i] = syms[rnd.Next(0, syms.Length)];
+            ////    price[i] = (double)rnd.Next(0, 200);
+            ////    size[i] = 100 * rnd.Next(1, 10);
+            ////}
+            ////x[0] = time;
+            ////x[1] = sym;
+            ////x[2] = price;
+            ////x[3] = size;
+            ////c.k("insert", "mytrade", x);
+            ////c.Close();
+            ////KDBConnection.TestCreate(EventHub.SendToEventHub);
+            ////KDBConnection.GetKDBResults("localhost", 5985, EventHub.SendToEventHub);
+        }
+    }
+}

@@ -1,0 +1,47 @@
+﻿using System;
+using System.Net.Sockets;
+using System.Threading.Tasks;
+
+namespace TestKDB
+{
+    class Program
+    {
+
+        public static void Main()
+        {
+            AMain();
+
+            //KXQueryParser.Subscribe("", 50529, "", EventHub.SendToEventHub);
+            //KXQueryParser.Query("", 5000, "", "", EventHub.SendToEventHub);
+        }
+        public static async Task AMain()
+        {
+            await StartClient();
+        }
+
+        static async Task StartServer()
+        {
+            int port = 5000;
+
+            TcpListener listner = new TcpListener(System.Net.IPAddress.Parse("172.21.80.1"), port);
+            listner.Start();
+            // This line waits the client connection.
+            TcpClient remote_client = listner.AcceptTcpClient();
+            
+            // do something with remote_client.
+        }
+
+        static async Task StartClient()
+        {
+            await Task.Run(()=>StartServer());
+            int port = 5000;
+            System.Net.IPAddress ip = System.Net.IPAddress.Parse("172.21.80.1");
+
+            TcpClient client = new TcpClient();
+            client.Connect(ip, port);
+            Console.WriteLine("Connected Successfully!!");
+            Console.ReadLine();
+            // Do something with client.
+        }
+    }
+}
