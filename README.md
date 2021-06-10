@@ -1,6 +1,6 @@
 
 # Ingestion from KDB to ADX (Azure Data Explorer)
-
+#### Many thanks to Mariangela Rossi for aiding in developing this code.
 ![Screenshot](Pattern.png)
 
 Where near real time computing is concerned, the primary focus should be: 'number clock cycles it takes to compute vs the time to access memory' as it is what one wishes to optimize at every stage in the data movement and enrichment lifecycle. Processing is optimized when the following criteria can be met:
