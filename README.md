@@ -439,7 +439,7 @@ The following Diagram describes the high level data-flows possible of, to ADX.
 
 The details of which follows: 
 
-![Screenshot](ADXIngestionPaths.png)
+![Screenshot](ADXIngestionPaths.PNG)
 
 ## Versioning
 
