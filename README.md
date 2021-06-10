@@ -14,7 +14,7 @@ Formatted data is always an overhead, serialization, and parsing causes latency,
 
 ## In Memory Aggregation
 
-The implementation of the method: ParseExpressionAgainstLoadedInMemoryData(..) , illustrates the means of achieving In-Memory Aggregations against KDB table Data with the aide of runtime compilation of an inline delegate:
+The implementation of the method: DynamicallyParseExpressionDirectlyAgainstKDBDataInDirectMemmoryPointerFashion(..) , illustrates the means of achieving In-Memory Aggregations against KDB table Data with the aide of runtime compilation of an inline delegate:
 
 ```C#
 using ActuarialIntelligence.Domain.ContainerObjects;
