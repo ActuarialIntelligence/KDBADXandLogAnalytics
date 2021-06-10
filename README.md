@@ -447,7 +447,7 @@ We use Git/GitExtensions combination for versioning.
 
 ## Authors
 
-Rajah Iyer, Jyothiniranjan Pillay
+Rajah Iyer
 https://www.researchgate.net/profile/Rajah_Iyer
 https://www.linkedin.com/in/rajah-iyer-628689168/
 
