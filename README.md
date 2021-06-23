@@ -451,6 +451,7 @@ Rajah Iyer
 https://www.researchgate.net/profile/Rajah_Iyer
 https://www.linkedin.com/in/rajah-iyer-628689168/
 
+Mariangela Rossi
 
 ## License
 
@@ -461,7 +462,7 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 HAL
 Research Gate
 
-None of the code was obtained from external sources, i.e. the code was written by the author.
+None of the code was obtained from external sources, i.e. the code was written by the author, however we would like to thank the community of Developers across the KDB package library created for this purpose. In addition, we would like to give thanks to the open community in the way of guidance provided. 
 
 # Disclaimer
 
