@@ -451,7 +451,7 @@ Rajah Iyer
 https://www.researchgate.net/profile/Rajah_Iyer
 https://www.linkedin.com/in/rajah-iyer-628689168/
 
-Mariangela Rossi
+Mariangela Rossi https://www.linkedin.com/in/mariangela-rossi-500a139b/
 
 ## License
 
