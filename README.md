@@ -16,6 +16,61 @@ Where near real time computing is concerned, the primary focus should be: 'numbe
 On the final point above, an architectural pattern for achieveing this can be found toward the end of this README.   
 Formatted data is always an overhead, serialization, and parsing causes latency, and thus in support of the analytics engine, is best analysed in raw format requiring minimal checks and protocols in the way of interpretation. Csv is such a basic format. Use KDB where possible to load data into direct memory in structured form for analysis. Spark is exceptionally optimized in all aspects pertaining to movement and staging of data. To give context to this statement, spark is optimized to the point of being capable of transferring petabytes of data in minutes and was built with the intent of dealing with massive amounts of data as is associated with Bureaus such as Weather and Geo-Physics institutions that support the analysis of this data.   As such, spark is operationally fundamental to any platform looking to scale and, in a manner, conducive for ingestion and processing of data that can head in the direction of petabytes.  
 
+## What is KDB and who makes use of it?
+
+### Top European Users
+
+barclays capital
+deutsche bank
+ubs ag
+
+bank of america
+jpmorgan chase & co.
+citigroup
+morgan stanley group inc.
+the royal bank of scotland
+hsbc bank plc
+devnet
+kb rubin ltd.
+rsj a.s.
+first derivatives
+bank of tokyo-mitsubishi ufj ltd.
+knight capital europe limited
+Top American Users
+bank of america
+citigroup
+barclays capital
+citicorp global information network
+jpmorgan chase & co.
+deutsche bank
+fidelity investments
+ubs ag
+millenium partners l.p.
+rbc capital markets corporation
+sun trading llc
+sac capital advisors llc
+schonfeld tools llc.
+royal bank of canada
+state street imswest
+alliancebernstein l.p.
+knight capital group inc
+bny brokerage
+fxcm
+the bank of new york mellon corporation
+
+### What do they use kdb+ for?
+
+Market/Tick Data Storage
+Some firms have moved to kdb+ as their enterprise wide tick storage system and have built up large teams around this, Three of these include:
+
+Firm	Project	Description
+Barclays	BATS	Barclays Algorithmic Trading System. Distributed multi-server kdb+tick like setup, with support for multiple asset classes, credit, FX, fixed income. "BATS achieves the seamless integration with existing manual trading systems and allows deployments of new strategies without interrupting the trading flow."
+Morgan Stanley	Horizon	"The Horizon system provides a holistic time series infrastructure using a single database technology, KDB+/Q, with consistent tools for data acquisition/loading, data quality, and production support that covers a broad range of asset classes, data types, and frequencies that meet current and future trading, analytical and operational needs for all MS users."
+JP Morgan	TicDB	TicDB captures and stores market data for equities/futures in all markets across the globe, efficient access is made available to clients globally and real time and historical analytics are provided.
+"The team currently supports over 60 clients within various lines of business in the investment bank. These real-time and historical analytics are central to our products, which provide clients with intelligent analytical tools in the pre-trade, intraday and post-trade phases of trading.."
+
+Some important blocks of code associated with this project are described here below:
+
 ## In Memory Aggregation
 
 The implementation of the method: DynamicallyParseExpressionDirectlyAgainstKDBDataInDirectMemmoryPointerFashion(..) , illustrates the means of achieving In-Memory Aggregations against KDB table Data with the aide of runtime compilation of an inline delegate:
