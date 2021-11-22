@@ -353,7 +353,7 @@ namespace ActuarialIntelligence.Domain.ConnectedInstruction
 
 ## Reading the KDB Table
 
-The foll;owing code is made use of in the way of a KDB connection class implementation:
+The following code is made use of in the way of a KDB connection class implementation:
 
 ```C#
 using qSharp;
