@@ -3,6 +3,8 @@
 
 ![Screenshot](Pattern.png)
 
+The diagram above describes the various pillars against which latency is measured. Optimization across all the pillars is thus required to minimize latency.
+
 Where near real time computing is concerned, the primary focus should be: 'number clock cycles it takes to compute vs the time to access memory' as it is what one wishes to optimize at every stage in the data movement and enrichment lifecycle. Processing is optimized when the following criteria can be met:
 *	Format logic optimized.
 *	Write optimized (minimal time to send and read into memory)
@@ -14,7 +16,21 @@ Where near real time computing is concerned, the primary focus should be: 'numbe
 *	Retrieve in-memory processed aggregations, instead of moving large amounts of data for aggregation purposes.
 
 On the final point above, an architectural pattern for achieveing this can be found toward the end of this README.   
+
+### Some points on Latency
+
 Formatted data is always an overhead, serialization, and parsing causes latency, and thus in support of the analytics engine, is best analysed in raw format requiring minimal checks and protocols in the way of interpretation. Csv is such a basic format. Use KDB where possible to load data into direct memory in structured form for analysis. Spark is exceptionally optimized in all aspects pertaining to movement and staging of data. To give context to this statement, spark is optimized to the point of being capable of transferring petabytes of data in minutes and was built with the intent of dealing with massive amounts of data as is associated with Bureaus such as Weather and Geo-Physics institutions that support the analysis of this data.   As such, spark is operationally fundamental to any platform looking to scale and, in a manner, conducive for ingestion and processing of data that can head in the direction of petabytes.  
+
+### The point of this project
+
+The primary intent behind this project is to encapsulate blocks of logic and implementations that furnish:
+
+* Optimised ingestion (across the variety of ingestion paths possible) of KDB data into ADX.
+* Perform basic/advanced pointer type in-memory(kdb) aggregations and ingestion of result into Azure-Storage/ADX.  
+
+The preferred way to retrieve aggregated data, is to execute q-instructions against KDB data and retrieve the result alone into azure via the use of a micro-service. This way aggregation time is optimized along with the time associated with the movement of this data; mainly due to it's size. Whete more/full control over flop-counts (for processing and logic optimization), have logic housed within micro-services capable of in KDB memory aggregations and ingestion into the Azure environment.
+
+It is possible to to subscribe to KDB events to effect a trigger based execution approach. However this project only covers an EXE and Microservice based approach.  
 
 ## What is KDB and who makes use of it?
 
