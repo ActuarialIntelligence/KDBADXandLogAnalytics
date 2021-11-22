@@ -507,7 +507,7 @@ namespace demo.Infrastructure.connectors
 ```   
 ## ADX Ingestion Paths
 
-The following Diagram describes the high level data-flows possible of, to ADX.  
+The following Diagram describes the high level data-flows possible of KDB data, to ADX, via the use of EXE and/or Microservice.  
 
 ![Screenshot](IngestionFromKDB.png)
 
