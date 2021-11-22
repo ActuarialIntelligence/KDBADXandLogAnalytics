@@ -35,7 +35,7 @@ rsj a.s.,
 first derivatives,
 bank of tokyo-mitsubishi ufj ltd.,
 knight capital europe limited,
-Top American Users,
+### Top American Users
 bank of america,
 citigroup,
 barclays capital,
@@ -66,8 +66,7 @@ Some firms have moved to kdb+ as their enterprise wide tick storage system and h
 ---|---|---
 | #Barclays	| #BATS	| #Barclays Algorithmic Trading System. Distributed multi-server kdb+tick like setup, with support for multiple asset classes, credit, FX, fixed income. "BATS achieves the seamless integration with existing manual trading systems and allows deployments of new strategies without interrupting the trading flow."|
 | #Morgan Stanley	| #Horizon	| #"The Horizon system provides a holistic time series infrastructure using a single database technology, KDB+/Q, with consistent tools for data acquisition/loading, data quality, and production support that covers a broad range of asset classes, data types, and frequencies that meet current and future trading, analytical and operational needs for all MS users."|
-| #JP Morgan	| #TicDB	| #TicDB captures and stores market data for equities/futures in all markets across the globe, efficient access is made available to clients globally and real time and historical analytics are provided.
-"The team currently supports over 60 clients within various lines of business in the investment bank. These real-time and historical analytics are central to our products, which provide clients with intelligent analytical tools in the pre-trade, intraday and post-trade phases of trading.."|
+| #JP Morgan	| #TicDB	| #TicDB captures and stores market data for equities/futures in all markets across the globe, efficient access is made available to clients globally and real time and historical analytics are provided. "The team currently supports over 60 clients within various lines of business in the investment bank. These real-time and historical analytics are central to our products, which provide clients with intelligent analytical tools in the pre-trade, intraday and post-trade phases of trading.."|
 
 Some important blocks of code associated with this project are described here below:
 
