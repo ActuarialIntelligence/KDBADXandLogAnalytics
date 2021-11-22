@@ -11,6 +11,7 @@ Where near real time computing is concerned, the primary focus should be: 'numbe
 *	Processing as close to the processor as possible, is possible and is optimized.
 *	Remove as much as possible, overhead associated with interpreted/script type languages.  
 *	Perform aggregations(assuming efficient code) in memory, minimize/avoid movements of large amounts of data for aggregation purposes, and aggregate in primary hub-points if/whenever possible.
+
 On the final point above, an architectural pattern for achieveing this can be found toward the end of this README.   
 Formatted data is always an overhead, serialization, and parsing causes latency, and thus in support of the analytics engine, is best analysed in raw format requiring minimal checks and protocols in the way of interpretation. Csv is such a basic format. Use KDB where possible to load data into direct memory in structured form for analysis. Spark is exceptionally optimized in all aspects pertaining to movement and staging of data. To give context to this statement, spark is optimized to the point of being capable of transferring petabytes of data in minutes and was built with the intent of dealing with massive amounts of data as is associated with Bureaus such as Weather and Geo-Physics institutions that support the analysis of this data.   As such, spark is operationally fundamental to any platform looking to scale and, in a manner, conducive for ingestion and processing of data that can head in the direction of petabytes.  
 
