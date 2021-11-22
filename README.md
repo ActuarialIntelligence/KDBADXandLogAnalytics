@@ -3,7 +3,7 @@
 
 ![Screenshot](Pattern.png)
 
-The diagram above describes the various stages against which latency is measured, the main pillars surrounding the stages are: Ingest/Process/Serve. Optimization across all of the stages is thus required to minimize latency.
+The diagram above describes the various stages against which latency is measured, the main concerns surrounding the stages are: Ingest/Process/Serve. Optimization across all of the stages is thus required to minimize latency.
 
 Where near real time computing is concerned, the primary focus should be: 'number clock cycles it takes to compute vs the time to access memory' as it is what one wishes to optimize at every stage in the data movement and enrichment lifecycle. Processing is optimized when the following criteria can be met:
 *	Format logic optimized.
