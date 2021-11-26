@@ -6,12 +6,12 @@
 The diagram above describes the various stages against which latency is measured, the main concerns surrounding the stages are: Ingest/Process/Serve. Optimization across all of the stages is thus required to minimize latency.
 
 Where near real time computing is concerned, the primary focus should be: 'number clock cycles it takes to compute vs the time to access memory' as it is what one wishes to optimize at every stage in the data movement and enrichment lifecycle. Processing is optimized when the following criteria can be met:
-*	Format logic optimized.
+*	Format logic optimized(i.e., ETL logic).
 *	Write optimized (minimal time to send and read into memory)
 *	Transfer format of data is optimized (stream).
 *	Deserialize and reading into memory is optimized.
-*	Processing as close to the processor as possible, and is optimized (For a sample of how to effectively structure complex domain logic, see project: [ActuarialIntelligence/base](https://github.com/actuarialintelligence/base)).
-*	Remove as much as possible, overhead associated with interpreted/script type languages.  
+*	Processing is done as close to the processor as possible, and is process optimized. (For a sample of how to effectively structure complex domain logic, see project: [ActuarialIntelligence/base](https://github.com/actuarialintelligence/base)).
+*	Remove as much as possible, reliance on interpreted/script type languages unless absolutely necessary. Such languages have increased overhead associated.  
 *	Perform aggregations(assuming efficient code) in memory, and aggregate in primary hub-points if/whenever possible.
 *	Retrieve in-memory processed aggregations, instead of moving large amounts of data for aggregation purposes.
 
