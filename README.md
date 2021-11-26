@@ -10,7 +10,7 @@ Where near real time computing is concerned, the primary focus should be: 'numbe
 *	Write optimized (minimal time to send and read into memory)
 *	Transfer format of data is optimized (stream).
 *	Deserialize and reading into memory is optimized.
-*	Processing as close to the processor as possible, and is optimized (For a sample of how to effectively structure complex domain logic, see: [a link](https://github.com/actuarialintelligence/base)).
+*	Processing as close to the processor as possible, and is optimized (For a sample of how to effectively structure complex domain logic, see project: [ActuarialIntelligence/base](https://github.com/actuarialintelligence/base)).
 *	Remove as much as possible, overhead associated with interpreted/script type languages.  
 *	Perform aggregations(assuming efficient code) in memory, and aggregate in primary hub-points if/whenever possible.
 *	Retrieve in-memory processed aggregations, instead of moving large amounts of data for aggregation purposes.
