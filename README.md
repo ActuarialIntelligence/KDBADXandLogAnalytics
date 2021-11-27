@@ -550,7 +550,7 @@ namespace demo.Infrastructure.connectors
 
 By the phrase 'closer to the processor', we mean least amount of overhead in interpretation and dependence in the way of running. The optimised processing pattern follows in the Architectural diagram below.
 
-![Screenshot](OptimisedPattern.PNG)
+![Screenshot](OptimisedPattern.png)
 
 Implement your subscription logic in an Async Multithreaded fashion within the loop. Avoid any and all dependence on NHibernate orEntityFramework, and prefer the use of ADO connectors instead. House your Subscriber in an active API/EXE on Kubernetes. 
 Finally, keep notification logic separate. 
