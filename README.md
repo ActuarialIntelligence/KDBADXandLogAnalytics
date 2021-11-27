@@ -541,7 +541,7 @@ namespace demo.Infrastructure.connectors
                     for (int column = 0; column < nColumns; column++)
                         System.Console.Write((column > 0 ? "," : "") + c.at(flip.y[column], row));
 			// Place Transaction-Processing-Logic here
-			// If additional APIs are called to facilitate processing, then have these optimised for .
+			// If additional APIs are called to facilitate processing, then have these optimised.
                     System.Console.WriteLine();
                 }
             }
