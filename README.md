@@ -517,6 +517,44 @@ The details of which follows:
 
 ![Screenshot](ADXIngestionPaths.PNG)
 
+The following code describes the means by which subscribing to a KDB Tick-Event is achieved:
+
+```C#
+namespace demo.Infrastructure.connectors
+{
+    public static class KDBConnection     
+    {
+
+	...
+        public static void Subscribe()
+        {
+            c c = new c("localhost", 5001);
+            c.k("sub[`trade;`MSFT.O`IBM.N]");
+            while (true)
+            {
+                object result = c.k();
+                c.Flip flip = c.td(result);
+                int nRows = c.n(flip.y[0]);
+                int nColumns = c.n(flip.x);
+                for (int row = 0; row < nRows; row++)
+                {
+                    for (int column = 0; column < nColumns; column++)
+                        System.Console.Write((column > 0 ? "," : "") + c.at(flip.y[column], row));
+			// Place Transaction-Processing-Logic here
+			// If additional APIs are called to facilitate processing, then have these optimised for .
+                    System.Console.WriteLine();
+                }
+            }
+        }
+```
+
+By the phrase 'closer to the processor', we mean least amount of overhead in interpretation and dependence in the way of running. The optimised processing pattern follows in the Architectural diagram below.
+
+![Screenshot](OptimisedPattern.PNG)
+
+Implement your subscription logic in an Async Multithreaded fashion within the loop. Avoid any and all dependence on NHibernate orEntityFramework, and prefer the use of ADO connectors instead. House your Subscriber in an active API/EXE on Kubernetes. 
+Finally, keep notification logic separate. 
+
 ## Versioning
 
 We use Git/GitExtensions combination for versioning.
